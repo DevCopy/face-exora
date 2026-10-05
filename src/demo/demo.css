@@ -1,0 +1,110 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 50% -10%, #ffffff 0%, transparent 70%),
+    #f3f4f0;
+  color: #1c1f1a;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.page {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 64px;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+}
+
+.page-head p {
+  margin: 8px 0 0;
+  color: #6d7468;
+  font-size: 16px;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 8px 28px;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 18px 22px 20px;
+  background: #fff;
+  border: 1px solid #e6e8e2;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(28, 40, 20, 0.04);
+}
+
+.flow-stage {
+  height: 210px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120px 40px at 50% 78%, rgba(40, 230, 70, 0.16), transparent 70%),
+    linear-gradient(#fff, #fbfcfb);
+  border-radius: 16px;
+}
+
+.flow-kicker {
+  margin: 0;
+  color: #6d7468;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flow-copy h2 {
+  margin: 6px 0 0;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.flow-copy>p:last-of-type {
+  margin: 6px 0 0;
+  color: #6d7468;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.flow-step {
+  border: 1px solid #e6e8e2;
+  background: #f7f8f5;
+  color: #1c1f1a;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.flow-step.is-active {
+  background: #1c1f1a;
+  border-color: #1c1f1a;
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .flow {
+    grid-template-columns: 1fr;
+  }
+}
