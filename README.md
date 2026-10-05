@@ -9,11 +9,8 @@ React-компонент зелёного лица. Стили входят в �
 Соберите пакет, затем поставьте его в приложение по пути к этой папке:
 
 ```bash
-npm run build
-npm install ../face-animation
+npm install github:пользователь/face-animation
 ```
-
-`dist` не коммитится. Установка из GitHub (`npm install github:пользователь/face-animation`) заработает только если в репозитории есть `dist` или скрипт `prepare`, который запускает сборку.
 
 ## Использование
 
