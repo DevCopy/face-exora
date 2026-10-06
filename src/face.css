@@ -86,7 +86,7 @@
     radial-gradient(120px 80px at 50% 60%, var(--fa-green-mid) 0%, var(--fa-green-edge) 58%, var(--fa-green-deep) 140%);
   box-shadow:
     inset 0 14px 18px rgba(255, 255, 255, 0.38),
-    inset 0 -16px 18px rgba(8, 120, 24, 0.18);
+    inset 0 -16px 18px rgba(20, 30, 40, 0.16);
 }
 
 .fa-blob::before {
@@ -121,8 +121,10 @@
   width: 16px;
   height: 46px;
   border-radius: 999px;
-  background: #000000;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: #fff;
+  box-shadow:
+    0 0 0 1.5px rgba(10, 18, 28, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.85);
   transform-origin: center;
   transition: transform 0.14s ease;
 }
@@ -144,10 +146,10 @@
 }
 
 .fa-face[data-mood="think"] {
-  --fa-green-core: #e7ff92;
-  --fa-green-mid: #c6ef3a;
-  --fa-green-edge: #a4d426;
-  --fa-green-deep: #7eae14;
+  --fa-green-core: #ffe8a8;
+  --fa-green-mid: #ffb020;
+  --fa-green-edge: #f08a00;
+  --fa-green-deep: #c45e00;
 }
 
 .fa-face[data-mood="think"] .fa-rig {
@@ -163,49 +165,83 @@
 }
 
 .fa-face[data-mood="think"] .fa-shadow {
-  background: radial-gradient(closest-side, rgba(176, 210, 40, 0.55), rgba(176, 210, 40, 0));
+  background: radial-gradient(closest-side, rgba(240, 140, 20, 0.55), rgba(240, 140, 20, 0));
   animation: fa-think-shadow 3.6s ease-in-out infinite;
 }
 
-.fa-dots {
+.fa-mark {
   position: absolute;
-  right: 18px;
-  top: 12px;
-  display: flex;
-  align-items: flex-end;
-  gap: 5px;
-  height: 18px;
+  right: 2px;
+  top: 0;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(calc(1 / max(0.5, var(--fa-size, 1))));
+  transform-origin: top right;
+  transition: opacity 0.45s ease;
 }
 
-.fa-think-dots,
-.fa-search-mark,
-.fa-zzz,
+.fa-think-dots {
+  right: 8px;
+  top: 2px;
+}
+
+.fa-search-mark {
+  right: 0;
+  top: -2px;
+}
+
 .fa-blush,
 .fa-paw,
-.fa-glasses,
-.fa-ai-badge {
+.fa-glasses {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .fa-face[data-mood="think"] .fa-think-dots,
 .fa-face[data-mood="search"] .fa-search-mark,
-.fa-face[data-mood="sleep"] .fa-zzz,
+.fa-face[data-mood="sleep"] .fa-sleep-mark,
 .fa-face[data-mood="greet"] .fa-blush,
 .fa-face[data-mood="greet"] .fa-paw,
 .fa-face[data-mood="ai"] .fa-glasses,
-.fa-face[data-mood="ai"] .fa-ai-badge {
+.fa-face[data-mood="ai"] .fa-ai-mark {
   opacity: 1;
+}
+
+.fa-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #1d1408;
+  box-shadow: 0 4px 12px rgba(20, 16, 8, 0.22);
+}
+
+.fa-chip-search {
+  background: #06263a;
+}
+
+.fa-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 12px;
 }
 
 .fa-dots i {
   display: block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #6f8f12;
-  opacity: 0.25;
+  background: #ffd36a;
+  opacity: 0.28;
   animation: fa-dot 1.2s ease-in-out infinite;
+}
+
+.fa-chip-search .fa-dots i {
+  background: #7fe7ff;
 }
 
 .fa-dots i:nth-child(2) {
@@ -214,6 +250,13 @@
 
 .fa-dots i:nth-child(3) {
   animation-delay: 0.36s;
+}
+
+.fa-face[data-mood="search"] {
+  --fa-green-core: #b8f4ff;
+  --fa-green-mid: #2ec8ff;
+  --fa-green-edge: #0a8fd6;
+  --fa-green-deep: #065f9a;
 }
 
 .fa-face[data-mood="search"] .fa-rig {
@@ -229,31 +272,23 @@
 }
 
 .fa-face[data-mood="search"] .fa-shadow {
+  background: radial-gradient(closest-side, rgba(20, 160, 230, 0.5), rgba(20, 160, 230, 0));
   animation: fa-search-shadow 1.6s ease-in-out infinite;
-}
-
-.fa-search-mark {
-  position: absolute;
-  right: 6px;
-  top: 4px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 2;
-}
-
-.fa-search-mark .fa-dots {
-  position: static;
-  height: 14px;
-  gap: 4px;
 }
 
 .fa-search-icon {
   display: block;
-  width: 16px;
-  height: 16px;
-  color: #5f7c14;
+  width: 18px;
+  height: 18px;
+  color: #e8fbff;
   flex: none;
+}
+
+.fa-face[data-mood="fail"] {
+  --fa-green-core: #ffc4b0;
+  --fa-green-mid: #ff6a4a;
+  --fa-green-edge: #e03a28;
+  --fa-green-deep: #a81f16;
 }
 
 .fa-face[data-mood="fail"] .fa-rig {
@@ -273,12 +308,19 @@
 }
 
 .fa-face[data-mood="fail"] .fa-shadow {
+  background: radial-gradient(closest-side, rgba(220, 70, 50, 0.45), rgba(220, 70, 50, 0));
   animation: fa-fail-shadow 3.8s ease-in-out infinite;
 }
 
 .fa-face[data-mood="fail"] .fa-blob {
-  filter: saturate(0.75) brightness(0.96);
   animation: fa-fail-color 3.8s ease-in-out infinite;
+}
+
+.fa-face[data-mood="sleep"] {
+  --fa-green-core: #d7e0f0;
+  --fa-green-mid: #8ea0c0;
+  --fa-green-edge: #5d6f92;
+  --fa-green-deep: #3a4868;
 }
 
 .fa-face[data-mood="sleep"] .fa-rig {
@@ -290,19 +332,25 @@
 }
 
 .fa-face[data-mood="sleep"] .fa-shadow {
+  background: radial-gradient(closest-side, rgba(80, 100, 140, 0.45), rgba(80, 100, 140, 0));
   animation: fa-sleep-shadow 4.2s ease-in-out infinite;
 }
 
 .fa-zzz {
-  position: absolute;
-  right: 28px;
-  top: 18px;
-  color: #8d9788;
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 2px 8px 4px;
+  border-radius: 999px;
+  background: #24304a;
+  color: #e8eefc;
   font-family: "Avenir Next", "Segoe UI", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 18px;
   letter-spacing: -0.04em;
   line-height: 1;
+  box-shadow: 0 4px 12px rgba(20, 28, 48, 0.22);
 }
 
 .fa-face[data-mood="sleep"] .fa-zzz {
@@ -310,6 +358,10 @@
 }
 
 .fa-face[data-mood="done"] {
+  --fa-green-core: #f0e0ff;
+  --fa-green-mid: #b984ff;
+  --fa-green-edge: #8b4cf0;
+  --fa-green-deep: #5c28b8;
   animation: fa-done-color 2.6s ease-in-out infinite;
 }
 
@@ -322,8 +374,15 @@
 }
 
 .fa-face[data-mood="done"] .fa-shadow {
-  background: radial-gradient(closest-side, rgba(150, 90, 230, 0.4), rgba(150, 90, 230, 0));
+  background: radial-gradient(closest-side, rgba(150, 90, 230, 0.45), rgba(150, 90, 230, 0));
   animation: fa-done-shadow 2.6s ease-in-out infinite;
+}
+
+.fa-face[data-mood="greet"] {
+  --fa-green-core: #ffe0ec;
+  --fa-green-mid: #ff7eb0;
+  --fa-green-edge: #ef4f8d;
+  --fa-green-deep: #c22662;
 }
 
 .fa-face[data-mood="greet"] .fa-rig {
@@ -343,6 +402,7 @@
 }
 
 .fa-face[data-mood="greet"] .fa-shadow {
+  background: radial-gradient(closest-side, rgba(240, 90, 140, 0.4), rgba(240, 90, 140, 0));
   animation: fa-greet-shadow 2.8s ease-in-out infinite;
 }
 
@@ -380,10 +440,10 @@
 }
 
 .fa-face[data-mood="ai"] {
-  --fa-green-core: #e9ffb0;
-  --fa-green-mid: #7dff63;
-  --fa-green-edge: #2fe04a;
-  --fa-green-deep: #12b830;
+  --fa-green-core: #d8fff6;
+  --fa-green-mid: #2fe0c8;
+  --fa-green-edge: #1299a8;
+  --fa-green-deep: #0a5f72;
 }
 
 .fa-face[data-mood="ai"] .fa-rig {
@@ -403,6 +463,7 @@
 }
 
 .fa-face[data-mood="ai"] .fa-shadow {
+  background: radial-gradient(closest-side, rgba(20, 170, 180, 0.45), rgba(20, 170, 180, 0));
   animation: fa-ai-shadow 3.4s ease-in-out 0.5s infinite;
 }
 
@@ -424,15 +485,15 @@
 .fa-glasses-arm,
 .fa-bridge {
   fill: none;
-  stroke: #173024;
-  stroke-width: 3.2;
+  stroke: #06263a;
+  stroke-width: 4.2;
   stroke-linecap: round;
 }
 
 .fa-lens {
-  fill: rgba(255, 255, 255, 0.16);
-  stroke: #173024;
-  stroke-width: 3.2;
+  fill: rgba(255, 255, 255, 0.28);
+  stroke: #06263a;
+  stroke-width: 4.2;
 }
 
 .fa-glint {
@@ -448,19 +509,21 @@
 }
 
 .fa-ai-badge {
-  position: absolute;
-  right: 8px;
-  top: 6px;
-  z-index: 2;
-  padding: 3px 7px 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 28px;
+  padding: 4px 10px 3px;
   border-radius: 999px;
-  background: #173024;
-  color: #e9ffb0;
+  background: #06263a;
+  color: #d8fff6;
   font-family: "Avenir Next", "Segoe UI", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   line-height: 1.1;
+  box-shadow: 0 4px 12px rgba(6, 38, 58, 0.28);
 }
 
 .fa-face[data-mood="ai"] .fa-ai-badge {
@@ -474,10 +537,10 @@
   border-radius: 50%;
   background:
     radial-gradient(circle at 36% 30%, rgba(255, 255, 255, 0.75), transparent 36%),
-    radial-gradient(circle at 50% 58%, #c8ff78 0%, #3dff4a 46%, #18c832 100%);
+    radial-gradient(circle at 50% 58%, #ffe0ec 0%, #ff7eb0 46%, #ef4f8d 100%);
   box-shadow:
     inset 0 5px 6px rgba(255, 255, 255, 0.4),
-    inset 0 -5px 7px rgba(8, 120, 24, 0.22);
+    inset 0 -5px 7px rgba(160, 30, 80, 0.22);
 }
 
 .fa-board {
@@ -773,7 +836,7 @@
   }
 
   52%, 90% {
-    filter: saturate(0.75) brightness(0.96);
+    filter: saturate(0.88) brightness(0.92);
   }
 
   100% {
@@ -852,17 +915,17 @@
 
 @keyframes fa-done-color {
   0%, 12%, 100% {
-    --fa-green-core: #c8ff78;
-    --fa-green-mid: #3dff4a;
-    --fa-green-edge: #18e034;
-    --fa-green-deep: #0fbe28;
+    --fa-green-core: #f0e0ff;
+    --fa-green-mid: #b984ff;
+    --fa-green-edge: #8b4cf0;
+    --fa-green-deep: #5c28b8;
   }
 
   32%, 74% {
-    --fa-green-core: #f3e7ff;
-    --fa-green-mid: #c9a4ff;
-    --fa-green-edge: #b184f6;
-    --fa-green-deep: #8d62e4;
+    --fa-green-core: #ffe8ff;
+    --fa-green-mid: #d4a8ff;
+    --fa-green-edge: #9b5af8;
+    --fa-green-deep: #6a30c8;
   }
 }
 
@@ -1154,6 +1217,7 @@
   }
 
   .fa-face[data-mood="ai"] .fa-glasses,
+  .fa-face[data-mood="ai"] .fa-ai-mark,
   .fa-face[data-mood="ai"] .fa-ai-badge {
     opacity: 1;
     transform: none;

@@ -5,31 +5,31 @@ export declare const FACE_MOODS: readonly [{
 }, {
     readonly id: "think";
     readonly title: "Думает";
-    readonly description: "Взгляд уходит вверх, рядом по очереди загораются точки.";
+    readonly description: "Становится янтарным, взгляд уходит вверх, рядом загораются точки.";
 }, {
     readonly id: "search";
     readonly title: "Ищет";
-    readonly description: "Щурится и шарит взглядом, рядом лупа и точки.";
+    readonly description: "Голубой, щурится и шарит взглядом, рядом яркая лупа.";
 }, {
     readonly id: "fail";
     readonly title: "Не получилось";
-    readonly description: "Встряхивается и опускает взгляд.";
+    readonly description: "Краснеет, встряхивается и опускает взгляд.";
 }, {
     readonly id: "sleep";
     readonly title: "Уснул";
-    readonly description: "Глаза закрыты, тело тихо дышит.";
+    readonly description: "Серо-синий, глаза закрыты, тело тихо дышит.";
 }, {
     readonly id: "done";
     readonly title: "Закончено";
-    readonly description: "Чуть фиолетовеет и напрягается.";
+    readonly description: "Фиолетовый и чуть напрягается.";
 }, {
     readonly id: "greet";
     readonly title: "Здоровается";
-    readonly description: "Немного стесняется и машет круглой лапкой.";
+    readonly description: "Розовый, стесняется и машет круглой лапкой.";
 }, {
     readonly id: "ai";
     readonly title: "AI";
-    readonly description: "Сразу подписывается, надевает очки и становится умным.";
+    readonly description: "Бирюзовый, надевает очки и показывает бейдж AI.";
 }];
 export type FaceMood = (typeof FACE_MOODS)[number]["id"];
 export type FaceMoodInfo = (typeof FACE_MOODS)[number];

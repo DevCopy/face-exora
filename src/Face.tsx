@@ -204,7 +204,14 @@ export function Face({
   return (
     <div
       className={className ? `fa-slot ${className}` : "fa-slot"}
-      style={{ width: 230 * size, height: 170 * size, ...style }}
+      style={
+        {
+          width: 230 * size,
+          height: 170 * size,
+          ["--fa-size" as string]: String(size),
+          ...style,
+        } as CSSProperties
+      }
     >
       <div
         ref={faceRef}
@@ -237,27 +244,33 @@ export function Face({
             </svg>
           </div>
         </div>
-        <span className="fa-dots fa-think-dots" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span className="fa-search-mark" aria-hidden="true">
-          <svg className="fa-search-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="10" cy="10" r="6.2" fill="none" stroke="currentColor" strokeWidth="2.6" />
-            <path d="M14.6 14.8 20 20.2" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-          </svg>
-          <span className="fa-dots">
-            <i />
-            <i />
-            <i />
+        <span className="fa-mark fa-think-dots" aria-hidden="true">
+          <span className="fa-chip">
+            <span className="fa-dots">
+              <i />
+              <i />
+              <i />
+            </span>
           </span>
         </span>
-        <span className="fa-zzz" aria-hidden="true">
-          z
+        <span className="fa-mark fa-search-mark" aria-hidden="true">
+          <span className="fa-chip fa-chip-search">
+            <svg className="fa-search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10" cy="10" r="6.2" fill="none" stroke="currentColor" strokeWidth="3" />
+              <path d="M14.6 14.8 20 20.2" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+            <span className="fa-dots">
+              <i />
+              <i />
+              <i />
+            </span>
+          </span>
         </span>
-        <span className="fa-ai-badge" aria-hidden="true">
-          AI
+        <span className="fa-mark fa-sleep-mark" aria-hidden="true">
+          <span className="fa-zzz">z</span>
+        </span>
+        <span className="fa-mark fa-ai-mark" aria-hidden="true">
+          <span className="fa-ai-badge">AI</span>
         </span>
       </div>
     </div>

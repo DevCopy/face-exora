@@ -103,6 +103,42 @@ body {
   color: #fff;
 }
 
+.sizes {
+  margin-top: 8px;
+  padding: 18px 22px 22px;
+  background: #fff;
+  border: 1px solid #e6e8e2;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(28, 40, 20, 0.04);
+}
+
+.sizes h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.sizes-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.sizes-cell {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 92px;
+  padding: 8px 6px 10px;
+  border-radius: 14px;
+  background: linear-gradient(#fff, #f7f8f5);
+}
+
+.sizes-cell span {
+  color: #6d7468;
+  font-size: 12px;
+}
+
 @media (max-width: 720px) {
   .flow {
     grid-template-columns: 1fr;
